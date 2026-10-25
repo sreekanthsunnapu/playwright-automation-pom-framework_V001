@@ -20,7 +20,7 @@ pipeline{
     post{
         always{
             echo "Build Execution Complete"
-            allure generate 
+            bat "allure generate allure-results --clean -o allure-reports" 
         }
         success{
             echo "Build Executed Successfully "
