@@ -10,11 +10,6 @@ pipeline{
                 bat "npx playwright install --with-deps "
             }
         }
-        stage(''){
-            steps{
-
-            }
-        }
         stage('Test'){
             steps{
                 echo "Testing the Projecct"
