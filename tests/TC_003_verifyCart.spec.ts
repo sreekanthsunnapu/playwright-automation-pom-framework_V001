@@ -12,7 +12,7 @@ test("Verify Add to Cart", async({page})=>{
     const homePage=new HomePage(page);
     
     //login Page
-    await loginPage.gotoLoginPage();
+    await loginPage.navigate();
     await loginPage.login("admin","admin");
     await loginPage.verifyLoginSuccess();
 

@@ -6,7 +6,6 @@ export class HomePage{
     readonly placeOrderButton:Locator;
     readonly cartProductHeader:Locator;
     
-
     constructor(page:Page){
         this.page=page;
         this.productsList=page.locator("#tbodyid h4 a");
@@ -15,11 +14,12 @@ export class HomePage{
     }
 
     async addItemToCart(searchItem:string){
+        console.log("We are on Home Page, Adding items to the Cart")
         const items=await this.productsList.all();
         for(let item of items){
             const itemName=await item.innerText();
             if(itemName===searchItem){
-                item.click();
+                await item.click();
                 break;
             }
         }
@@ -27,8 +27,9 @@ export class HomePage{
             console.log(dialog.message());
             await dialog.accept();
         })
-        this.page.getByRole('link',{name:'Add to cart'}).click();
+        await this.page.getByRole('link',{name:'Add to cart'}).click();
         // this.page.waitForTimeout(2000)
+        //this.page.waitForLoadState('load');
         await expect(this.cartProductHeader).toBeVisible();
     }
 

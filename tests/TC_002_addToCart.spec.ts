@@ -6,7 +6,7 @@ test("Verify Add to Cart", async({page})=>{
     const loginPage=new LoginPage(page);
     const homePage=new HomePage(page);
 
-    await loginPage.gotoLoginPage();
+    await loginPage.navigate();
     await loginPage.login("admin","admin");
     await loginPage.verifyLoginSuccess();
 

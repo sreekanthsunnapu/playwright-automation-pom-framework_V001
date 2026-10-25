@@ -15,7 +15,7 @@ export class LoginPage{
         this.loginButton=page.getByRole('button',{name:'Log in'});
     }
 
-    async gotoLoginPage(){
+    async navigate(){
         await this.page.goto("https://demoblaze.com/index.html")
     }
     async login(userName:string,password:string){
@@ -31,5 +31,6 @@ export class LoginPage{
         await this.page.waitForURL("https://demoblaze.com/index.html");
         await expect(this.page.getByRole('link',{name:'Log out'})).toBeVisible();
         await expect(this.page.locator("#nameofuser")).toContainText('Welcome');
+        console.log("You are logged in successfully")
     }
 }

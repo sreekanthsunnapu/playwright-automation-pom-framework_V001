@@ -10,17 +10,20 @@ export class CartPage{
     }
 
         async checkProductInCart(searchProduct:string){
+            console.log("we are on the product cart page")
             const cartItems=await this.cartTable.all();
             console.log("cartItems", cartItems);
             for(let item of cartItems){
                 const itemName=await item.innerText()
                 console.log("Cart Item Name", itemName)
                 if(searchProduct===itemName){
-                console.log("Yes, Procudt is added to the Cart");
+                console.log("Yes, Product is added to the Cart");
                 break;
             }
             }
-
+        }
+        async thankingNote(){
+            console.log("Thank You, Visit Again")
         }
 
 }
